@@ -197,8 +197,6 @@ function dkwho.startplugin()
 				end
 			end
 
-			draw_stars()
-
 			if (mode1 == 3 and (mode2 == 11 or mode2 == 12 or mode2 == 13 or mode2 == 22)) or (mode1 == 1 and mode2 >= 2 and mode2 <= 4) then
 				-- During play or during attact mode (including just before and just after)
 				if stage == 1 then
@@ -234,6 +232,8 @@ function dkwho.startplugin()
 					end
 				end
 			end
+
+			draw_stars()
 		end
 	end
 
@@ -346,7 +346,10 @@ function dkwho.startplugin()
 	  	local _ypos, _xpos = 0, 0
 		for key=1, number_of_stars, 2 do
 			_ypos, _xpos = _starfield[key], _starfield[key+1]
-			scr:draw_line(_ypos, _xpos, _ypos, _xpos, 0xcbbffffff)
+			scr:draw_line(_ypos, _xpos, _ypos, _xpos, 0xbbffffff)
+			
+			--slowly scroll the starfield
+			_starfield[key], _starfield[key+1] = math_fmod(_ypos + 0.01, 256), math_fmod(_xpos + 0.05,224)
 		end
 	end
 
