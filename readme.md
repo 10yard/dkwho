@@ -1,6 +1,6 @@
 # **A MAME plugin version of DK Who and the Daleks** #
 
-Tested with latest MAME version 0.235
+Tested with latest MAME version 0.236
 (Compatible with MAME and WolfMAME versions from 0.196 upwards)
 
 
